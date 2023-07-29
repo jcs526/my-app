@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -58,6 +58,9 @@ const Comment = (props) => {
     </div>
   </div>)
 }
+
+const [text, setText] =useState("기본값입니다.");
+setText("수정된값")
 const tick = () => {
   const element = (
     <div>
@@ -69,6 +72,7 @@ const tick = () => {
         date={comment.date}
         text={comment.text}
         author={comment.author} />
+      <div>{text}</div>
     </div>
   );
   root.render(element);
