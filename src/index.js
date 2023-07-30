@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import UseState from './UseState';
+import ListItems from './ListItems';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -31,7 +32,7 @@ function Avatar(props) {
 }
 
 function UserInfo(props) {
- return <div className="UserInfo">
+  return <div className="UserInfo">
     <Avatar user={props.user} />
     <div className="UserInfo-name">
       {props.user.name}
@@ -73,7 +74,8 @@ const tick = () => {
         date={comment.date}
         text={comment.text}
         author={comment.author} />
-        <UseState></UseState>
+      <UseState></UseState>
+      <ListItems></ListItems>
     </div>
   );
   root.render(element);
