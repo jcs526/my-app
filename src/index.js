@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import UseState from './UseState';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -59,9 +60,9 @@ const Comment = (props) => {
   </div>)
 }
 
-const [text, setText] =useState("기본값입니다.");
-setText("수정된값")
+
 const tick = () => {
+
   const element = (
     <div>
       <Welcome name="function" />
@@ -72,7 +73,7 @@ const tick = () => {
         date={comment.date}
         text={comment.text}
         author={comment.author} />
-      <div>{text}</div>
+        <UseState></UseState>
     </div>
   );
   root.render(element);
