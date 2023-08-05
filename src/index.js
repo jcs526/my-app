@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import UseState from './UseState';
 import ListItems from './ListItems';
+import TicTacToc from './ticTacToc/ticTacToc.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -76,6 +77,7 @@ const tick = () => {
         author={comment.author} />
       <UseState></UseState>
       <ListItems></ListItems>
+      <TicTacToc></TicTacToc>
     </div>
   );
   root.render(element);
