@@ -1,4 +1,4 @@
-import Square from "./Squre";
+import Square from "./Square";
 
 const ticTacToc = () => {
     return <Square></Square>
