@@ -1,0 +1,9 @@
+.square{
+    padding: 5px 7px;
+    border: 1px black solid;
+    background-color: white;
+}
+.board-row{
+    margin: 0;
+    padding: 0;
+}

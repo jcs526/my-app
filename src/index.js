@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import UseState from './UseState';
 import ListItems from './ListItems';
 import TicTacToc from './ticTacToc/ticTacToc.js';
+
+import './style.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -62,6 +64,20 @@ const Comment = (props) => {
   </div>)
 }
 
+const UseEffectTest = ()=>{
+  const [num,setNum] = useState(0);
+
+  const handleClick = () => {
+    setNum(num+1);
+  };
+
+  useEffect(()=>{
+    handleClick()
+  },[])
+
+  return (<div><div onClick={handleClick}>{num}</div></div>)
+}
+
 
 const tick = () => {
 
@@ -77,6 +93,7 @@ const tick = () => {
         author={comment.author} />
       <UseState></UseState>
       <ListItems></ListItems>
+      <UseEffectTest></UseEffectTest>
       <TicTacToc></TicTacToc>
     </div>
   );
