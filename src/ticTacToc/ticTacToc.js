@@ -1,6 +1,6 @@
-import Square from "./Square";
+import Board from "./Board";
 
 const ticTacToc = () => {
-    return <Square></Square>
+    return <Board></Board>
   }
   export default ticTacToc
