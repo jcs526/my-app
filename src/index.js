@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -64,19 +64,6 @@ const Comment = (props) => {
   </div>)
 }
 
-const UseEffectTest = ()=>{
-  const [num,setNum] = useState(0);
-
-  const handleClick = () => {
-    setNum(num+1);
-  };
-
-  useEffect(()=>{
-    handleClick()
-  },[])
-
-  return (<div><div onClick={handleClick}>{num}</div></div>)
-}
 
 
 const tick = () => {
@@ -93,14 +80,14 @@ const tick = () => {
         author={comment.author} />
       <UseState></UseState>
       <ListItems></ListItems>
-      <UseEffectTest></UseEffectTest>
       <TicTacToc></TicTacToc>
     </div>
   );
   root.render(element);
 };
 
-setInterval(tick, 1000)
+// setInterval(tick, 1000)
+tick();
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
