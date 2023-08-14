@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import UseState from './UseState';
 import ListItems from './ListItems';
-import TicTacToc from './ticTacToc/ticTacToc.js';
+import TicTacToc from './ticTacToc/TicTacToc.js';
 
 import './style.css';
 
@@ -66,7 +66,7 @@ const Comment = (props) => {
 
 
 
-const tick = () => {
+const render = () => {
 
   const element = (
     <div>
@@ -86,8 +86,8 @@ const tick = () => {
   root.render(element);
 };
 
-// setInterval(tick, 1000)
-tick();
+// setInterval(render, 1000)
+render();
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
