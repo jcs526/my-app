@@ -19,8 +19,17 @@ export default function TicTacToc() {
 
   const moves = history.map((squares, move) => {
     let description;
+    
+let searched;
     if (move > 0) {
-      description = 'Go to move #' + move;
+      for (let i = 0; i < history[move].length; i++) {
+        for (let j = 0; j < history[move-1].length; j++) {
+          if(history[move][i]&&history[move][i]!== history[move-1][j]){
+            searched=i;
+          }
+        }
+      }
+      description = 'Go to move #' + searched;
     } else {
       description = 'Go to game start';
     }
