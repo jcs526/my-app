@@ -19,17 +19,23 @@ export default function TicTacToc() {
 
   const moves = history.map((squares, move) => {
     let description;
-    
-let searched;
+
+    let searched;
+    let index;
     if (move > 0) {
       for (let i = 0; i < history[move].length; i++) {
-        for (let j = 0; j < history[move-1].length; j++) {
-          if(history[move][i]&&history[move][i]!== history[move-1][j]){
-            searched=i;
-          }
+        if (history[move][i] && history[move][i] !== history[move - 1][i]) {
+          searched = `(${Math.floor(i / 3)},${i % 3})`;
+          index = move;
+          continue;
+
         }
       }
-      description = 'Go to move #' + searched;
+      if (currentMove === index) {
+        description = 'You are at move #…' + searched;
+      } else {
+        description = 'Go to move #' + searched;
+      }
     } else {
       description = 'Go to game start';
     }
@@ -46,7 +52,7 @@ let searched;
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
       <div className="game-info">
-      <ol>{moves}</ol>
+        <ol>{moves}</ol>
       </div>
     </div>
   );
