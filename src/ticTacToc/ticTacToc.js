@@ -16,7 +16,14 @@ export default function TicTacToc() {
   function jumpTo(nextMove) {
     setCurrentMove(nextMove);
   }
-
+  const [sort, setSort] = useState('ascending')
+  const handleToggle = () => {
+    if (sort === 'ascending') {
+      setSort('descending')
+    } else if (sort === 'descending') {
+      setSort('ascending')
+    }
+  };
   const moves = history.map((squares, move) => {
     let description;
 
@@ -52,7 +59,10 @@ export default function TicTacToc() {
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
       <div className="game-info">
-        <ol>{moves}</ol>
+        <ol>{sort === 'ascending' ? moves : moves.reverse()}</ol>
+      </div>
+      <div>
+        <button onClick={handleToggle}>Toggle Sort : {sort}</button>
       </div>
     </div>
   );
