@@ -56,7 +56,10 @@ export default function TicTacToc() {
   return (
     <div className="game">
       <div className="game-board">
-        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+        <Board xIsNext={xIsNext}
+          squares={currentSquares}
+          onPlay={handlePlay}
+          currentMove={currentMove} />
       </div>
       <div className="game-info">
         <ol>{sort === 'ascending' ? moves : moves.reverse()}</ol>

@@ -1,10 +1,15 @@
 import Square from "./Square";
 
 
-export default function Board({ xIsNext, squares, onPlay }) {
+export default function Board({ xIsNext, squares, onPlay, currentMove }) {
 
   const handleClick = (i) => {
-    if (calculateWinner(squares) || squares[i]) {
+    if (squares[i]) {
+      return;
+    }
+    let result = calculateWinner(squares);
+    if (result) {
+      console.log(result);
       return;
     }
     const nextSquares = squares.slice();
@@ -30,10 +35,19 @@ export default function Board({ xIsNext, squares, onPlay }) {
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-        return squares[a];
+        return lines[i];
       }
     }
     return null;
+  }
+  const winner = calculateWinner(squares);
+  let status;
+  if (winner) {
+    status = "Winner: " + (xIsNext ? "O" : "X");
+  } else if (currentMove === 9) {
+    status = "Draw game";
+  } else {
+    status = "Next player: " + (xIsNext ? "X" : "O");
   }
 
   const drawBoard = new Array(9).fill(null).map((v, i) => i).reduce((result, value, index) => {
@@ -45,18 +59,15 @@ export default function Board({ xIsNext, squares, onPlay }) {
     return result;
   }, []).map((v, i) => {
     return (<div className="board-row" key={i}>
-      {v.map((v2,i2)=>{return <Square value={squares[v2]} onSquareClick={() => handleClick(v2)}></Square>})}
+      {v.map((v2, i2) => {
+        return <Square value={squares[v2]}
+          className={winner?.includes(i * 3 + i2) ? 'highlight' : ''}
+          onSquareClick={() => handleClick(v2)}></Square>
+      })}
     </div>)
   })
 
 
-  const winner = calculateWinner(squares);
-  let status;
-  if (winner) {
-    status = "Winner: " + winner;
-  } else {
-    status = "Next player: " + (xIsNext ? "X" : "O");
-  }
   return (<>
     <div className="status">{status}</div>
     {drawBoard}
