@@ -5,7 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import UseState from './UseState';
 import ListItems from './ListItems';
-import TicTacToc from './ticTacToc/TicTacToc.js';
+import TicTacToc from './ticTacToc/ticTacToc.js';
+import MockupList from './mockupList/MockupList.js';
 
 import './style.css';
 
@@ -81,6 +82,7 @@ const render = () => {
       <UseState></UseState>
       <ListItems></ListItems>
       <TicTacToc></TicTacToc>
+      <MockupList></MockupList>
     </div>
   );
   root.render(element);
